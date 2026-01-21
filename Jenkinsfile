@@ -16,7 +16,7 @@ pipeline{
             steps{
                 //cloner l'adresse git du projet 
                 
-                sh "git clone https://github.com/Johannap19/PlaywrightJenkins.git"
+                sh "git clone https://github.com/Johannap19/PlaywrightJenkins.git repo"
             }
                 steps{
                 //check version de node et playwright
