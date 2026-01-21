@@ -24,8 +24,8 @@ pipeline{
              stage(" verification des versions "){
                 steps{
                 //check version de node et playwright
-                sh "echo 'node --version'"
-                sh "echo 'np playwright --version'"
+                sh "node --version"
+                sh "npx playwright --version"
              }
             }
              stage("test "){
