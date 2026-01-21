@@ -8,28 +8,33 @@ pipeline{
         } 
     }
     stages{
-        stage("démarrage de configuration projet"){
-            steps{
-                //supprimer le fichier repo
-                sh 'rm -rf repo'
+            stage("démarrage de configuration projet"){
+                steps{
+                    //supprimer le fichier repo
+                    sh 'rm -rf repo'
+                }
             }
-            steps{
+             stage("clone du projet"){
+                steps{
                 //cloner l'adresse git du projet 
                 
                 sh "git clone https://github.com/Johannap19/PlaywrightJenkins.git repo"
+             }
             }
+             stage(" verification des versions "){
                 steps{
                 //check version de node et playwright
                 sh "echo 'node --version'"
                 sh "echo 'np playwright --version'"
+             }
             }
-             steps{
+             stage("test "){
+                steps{
                 //acceder au projet repo avec la commannde dir 
                 dir('repo')
                 sh "npm install"
                 sh "npx playwright test --project=chromium"
-            }
-
-        }
+             }
+           }
     }
 }
