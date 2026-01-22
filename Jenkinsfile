@@ -53,11 +53,9 @@ pipeline{
                     sh 'npx playwright install'
                     //on peut remplacé les 2 ligne pécédente par sh 'npm ci'(permet de nétoyer et faire l'installation)
                     //sh "npx playwright test --project=chromium "
-                    script {
-                        if(params.navigateur == "chromium"){
-                            sh "npx playwright test --grep @smoke --project=chromium"
-                        }
-                    }
+                    sh "npx playwright test --grep @smoke --project=chromium"
+                        
+                    
                 }
             }
         }
