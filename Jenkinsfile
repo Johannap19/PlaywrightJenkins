@@ -4,7 +4,7 @@ pipeline{
     agent {
         docker {
             //recupérer l'image
-            image 'playwright/chromium:playwright-1.56.1'
+            image 'mcr.microsoft.com/playwright:v1.57.0-noble'
             // image 'mcr.microsoft.com/playwright:v1.57.0-noble' (pas besoin d'installer le git car cette image contient deja le git )
             //donner la permission
             args '--user=root --entrypoint=""'
@@ -30,11 +30,13 @@ pipeline{
         stage("demarrage de configuration de projet et clone du projet"){
             steps{
                 //installation de git
-                sh 'apt-get update && apt-get install -y git'
+                //sh 'apt-get update && apt-get install -y git'
                 //creer une commande pour suprimer le repo
                 sh "rm -rf repo"
                 //recupération du projet(clone)
                 sh "git clone https://github.com/Johannap19/PlaywrightJenkins.git repo"
+                sh "npm ci"
+                sh "npx playwright --version"
             }
         }
         // stage("clone du projet"){
