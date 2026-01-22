@@ -65,14 +65,15 @@ pipeline{
             
     }
 
-    post { 
-        success {
+    // post { 
+        
+    //     success {
             
-            script {
-                if (params.tags == 'smoke') {
-                    build job : 'job_jenkinsfile2'
-                }
-            }
-        }
-    }
+    //         script {
+    //             if (params.tags == 'smoke') {
+    //                 build job : 'job_jenkinsfile2'
+    //             }
+    //         }
+    //     }
+    // }
 }
