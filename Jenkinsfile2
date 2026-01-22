@@ -32,9 +32,9 @@ pipeline{
                 //installation de git
                 sh 'apt-get update && apt-get install -y git'
                 //creer une commande pour suprimer le repo
-                sh "rm -rf repo"
+                sh "rm -rf dir"
                 //recupération du projet(clone)
-                sh "git clone https://github.com/eloundou843-commits/Playwrightjenkins.git repo"
+                sh "git clone https://github.com/eloundou843-commits/Playwrightjenkins.git dir"
             }
         }
         // stage("clone du projet"){
@@ -64,4 +64,3 @@ pipeline{
 
             
     }
-}
